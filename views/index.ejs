@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/0142ae0a0c.js" crossorigin="anonymous"></script>
+    <script src='https://cdn.plot.ly/plotly-2.12.1.min.js'></script>
+    <title>Weather Report</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!------------------CREATING SIDEBAR---------------------->
+
+        <div id="sidebar">
+            <div class="grid-item1 item1">
+                <form action="/" method="post" class="nosubmit">
+                    <input id="cityInput" name="cityName" class="nosubmit top" type="text" autocomplete="off"
+                        placeholder="Search Places..">
+                    <!-- <button type="submit" value="submit" class="search-btn" onclick="showAlert()"></button>    
+                    -->  </form> 
+                <img src="<%=imageURL%>" class="img-rounded" width="200px" height="200px">
+                <h3 class="pup"><%=cityname%></h3> 
+                <h4><%=weatherdescription%></h4>
+                <h1><%=temp%></h1>
+                
+                
+                <!-- <table class="mostcloudy">
+                    <tr>
+                        <td><i class='fas'>&#xf0c2;</i></td>
+                        <td>Mostly Cloudy</td>
+                    </tr>
+                    <tr>
+                        <td><i class='fas'>&#xf73d;</i></td>
+                        <td>Rain-30%</td>
+                    </tr>
+                </table> -->
+                <div class="ide">
+                    <img src="images.webp" class="spain">
+                    <div class="top-left">Barcelona, Spain</div>
+                </div>
+            </div>
+        </div>
+
+        <!----------------CREATING SECTION------------------->
+        <div class="section">
+
+            <div class="grid-stuff">
+                <p class="cut"><a href="#" class="bye">Today</a> &nbsp&nbsp <a href="#" class="fye">Week</a></p>
+            </div>
+            <div class="grid-stuff">
+                <p class="pop"><a href="#" class="cel">°C</a>&nbsp<a href="#" class="faren">°F</a></p>
+            </div>
+            <!-- <div class="grid-stuff">
+                <form action="/" method="post" class="nosubmit">
+                    <input id="cityInput" name="cityName" class="nosubmit top" type="text" autocomplete="off"
+                        placeholder="Search Cities..">
+                     <button type="submit" value="submit" class="search-btn" onclick="showAlert()"></button>    
+                      </form> 
+                <button type="button" class="fast"><img class="puppy" src="person.png">&nbsp<b class="follow">Alex
+                        Fernandis</b>&nbsp<i class='fas fa-chevron-down'></i></button> 
+            </div> -->
+        </div>
+
+
+
+        <!------------------CREATING HEADER----------------------->
+
+        <div id="header">
+            <div class="grid-item2 item2">
+                <h5 class="bell">Mon</h5>
+                <img src="<%=ImageURL[1]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[1]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Tue</h5>
+                <img src="<%=ImageURL[2]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[2]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Wed</h5>
+                <img src="<%=ImageURL[3]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[3]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Thur</h5>
+                <img src="<%=ImageURL[4]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[4]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Fri</h5>
+                <img src="<%=ImageURL[5]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[5]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Sat</h5>
+                <img src="<%=ImageURL[6]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[6]%></p></pre>
+            </div>
+            <div class="grid-item2 item2">
+                <h5 class="bell">Sun</h5>
+                <img src="<%=ImageURL[7]%>" width="50px" height="50px" class="icons">
+                <pre><p><%=temparature[7]%></p></pre>
+            </div>
+        </div>
+
+        <!-----------------CREATING FOOTER------------------------>
+        <h3 class="pit">Today Highlight</h3>
+        <div class="Container">
+            <div class="doctors">
+                <div class="patients wifi">
+                    <div id='myDiv' class="objective">
+                        <!-- Pl otly chart will be drawn inside this DIV -->
+                    </div>
+                </div>
+                <div class="patients wifi">
+                    <p class="wit">Wind Status</p>
+                    <p class="gul"><strong class="fine"><%=windspeed%></strong>Km/h</p>
+                    <p class="fully"><%=cityname%></p>
+                </div>
+                <div class="patients wifi">
+                    <div class="ram">
+                        <p class="third-block">Sunrise and Sunset</p>
+                        <div id="put">
+                            <div class="bulb">
+                                <div class="light"><i class='fas fa-arrow-alt-circle-up'></i></div>
+                                <div class="light"><i class='fas fa-arrow-alt-circle-down'></i></div>
+
+                            </div>
+                            <div class="con">
+                                <p class="blackfall"><strong class="pitfall">6:30</strong>&nbsp AM</p>
+                                <p class="blackfall grey"><strong class="pitfall">5:45</strong>&nbsp PM</p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="doctors">
+                <div class="patients wifi">
+                    <p class="berry">Humidity</p>
+                    <p class="purpule"><strong class="green"><%=humidity%></strong>&nbsp%</p>
+                    <p class="bit">Status&nbsp:&nbsp <b class="fan A_f">Good Quality</b></p>
+                </div>
+                <div class="patients wifi">
+                    <p class="berry">Visibility</p>
+                    <p class="purpule"><strong class="green"><%=visibility%></strong>&nbspKm/h</p>
+                    <p class="bit">Status&nbsp:&nbsp <b class="fan B_f">Average</b></p>
+                </div>
+                <div class="patients wifi">
+                    <p class="berry">Air&nbspQuality</p>
+                    <p class="purpule"><strong class="green">120</strong></p>
+                    <p class="bit">Status&nbsp:&nbsp <b class="fan C_f">Bad Quality</b></p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        var data = [{
+            domain: {
+                x: [0, 1],
+                y: [0, 1]
+            },
+            value: 270,
+            title: {
+                text: "Speed"
+            },
+            type: "indicator",
+            mode: "gauge+number"
+        }];
+
+        var layout = {
+            width: 280,
+            height: 180,
+            margin: {
+                t: 60,
+                b: 0,
+                l: 0,
+                r: 90
+            }
+        };
+        Plotly.newPlot('myDiv', data, layout);
+
+        // const d = new Date();
+        // document.getElementById("demo").innerHTML = d;
+
+        // 
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
